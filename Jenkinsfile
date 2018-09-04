@@ -11,6 +11,7 @@
 library identifier: 'pipeline@master',
         retriever: modernSCM(
                 [$class       : 'GitSCMSource',
+                 credentialsId: '99c49480-8063-4efb-a8bd-4fee70dd2fba', // fsbuild
                  remote       : 'https://fsbuild@code.sbb.ch/scm/~u203244/esta-pipeline-jenkinslib.git'])
 
 buildConf = [
