@@ -27,4 +27,4 @@ buildConf = [
 
 ]
 
-mainPipeline(repoConfig)
+mainPipeline(buildConf)
