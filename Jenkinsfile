@@ -2,17 +2,18 @@
 /*
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2018.
  *
- *  unter repoConfig bitte die Konfigurationsparameter fuer den Build anpassen, das Build Script
- *  selber befindet sich unter der Adresse hinter id@master
+ *  Unter buildConf bitte die Konfigurationsparameter fuer den Build anpassen, die eigentliche
+ *  Pipeline befindet sich im 'vars' unter pipeline@version
  *
  *  Doku: https://confluence.sbb.ch/todo
+ *
  */
-library identifier: 'id@master',
+library identifier: 'pipeline@master',
         retriever: modernSCM(
                 [$class       : 'GitSCMSource',
-                 remote       : 'https://code-i.sbb.ch/scm/~u203244/esta-pipeline-jenkinslib.git'])
+                 remote       : 'https://code.sbb.ch/scm/~u203244/esta-pipeline-jenkinslib.git'])
 
-repoConfig = [
+buildConf = [
 
         mein                     : 'param 1',
         bsp                      : 'bsp 1',
@@ -22,7 +23,8 @@ repoConfig = [
         openshiftImageNameTag    : '',              // '' = ohne SBB base Image (Bsp: alphine)
 
         sonarOFF                 : 'true',
+        lockResource             : 'false'
 
 ]
 
-libmain(repoConfig)
+mainPipeline(repoConfig)
