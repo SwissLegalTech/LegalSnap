@@ -25,6 +25,7 @@ buildConf = [
         sonarOFF                 : 'true',
         lockResource             : 'false'
 
+
 ]
 
 mainPipeline(buildConf)
