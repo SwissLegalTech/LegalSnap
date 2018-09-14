@@ -14,25 +14,20 @@ library identifier: 'pipeline@master',
                  credentialsId: '99c49480-8063-4efb-a8bd-4fee70dd2fba', // fsbuild
                  remote       : 'https://code.sbb.ch/scm/~u203244/esta-pipeline-jenkinslib.git'])
 
-
-
-
-
-
-
-
 buildConf = [
 
-        mein                     : 'param 1',
-        bsp                      : 'bsp 1',
-        deployNightly            : 'true',
+        gitflow                  : 'slim',          // slim = master and feature branch based // full = develop and master based full gitflow
+        releaseOnMerge           : 'true',          // true = merge on develop / master triggers a release
+
+        artifactoryProjectDocker : 'esta',
+        artifactoryProjectMaven  : 'esta.mvn',
+
         openshiftDeploy          : 'true' ,         // true = release auf openshift ausloesen
         openshiftArtefaktServer  : 'n/a',
         openshiftImageNameTag    : '',              // '' = ohne SBB base Image (Bsp: alphine)
 
         sonarOFF                 : 'true',
         lockResource             : 'false'
-
 
 ]
 
