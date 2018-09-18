@@ -18,4 +18,8 @@ java -jar legalsnap-0.0.1-SNAPSHOT.jar -DGOOGLE_APPLICATION_CREDENTIALS=[/path.t
 
 2018-09-18 17:15:22.377  INFO 15297
 
+Demo:
+https://legalsnap.emad.ch
+Demofiles for Upload:
+https://github.com/SwissLegalTech/LegalSnap/issues/1
 
