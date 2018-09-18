@@ -1,0 +1,64 @@
+Anerkennung als Flüchtling,Erlaubnis oder Bestätigung des Status "Flüchtling"
+Zuerkennung,Anerkennung
+Anhörung,offizielles Gespräch (wichtiger Teil für den Asylantrag)
+Asylantrag,Antrag als Flüchtling stellen
+Asylverfahren,Prozess um den Status "Flüchtling" zu erhalten
+Aufenthaltsgenehmigung,Recht zu bleiben
+Auffanglager ,erste Unterkunft
+Abschiebung,Ausreise unter Zwang
+abgeschoben,unter Zwang ausgereist
+Übergangslager,vorrüberghende Unterkunft
+mündliche. Verhandlung,Gespräch mit den Beamten über den Asylantrag
+Grenzübergangsstelle,Ort der Überschreitung der Grenze
+Grenzübertrittsbescheinigung,Bestätigung der Überschreitung der Grenze
+Kirchenasyl,Zuflucht in der Kirche
+Kontingentflüchtling,Flüchtling nach einer vereinbarten Anzahl
+Reisedokumente,Papiere für die Reise
+Rekurs,Widerspruch gegen Entscheidungen der Behörde
+Rechtsbehelf,Widerspruch gegen Entscheidungen der Behörde
+Rechtsbehelfsbelehrung,Information über die Möglichkeit Widerspruch erheben zu können
+Rückübernahmeabkommen,Vereinbarung zwischen Staaten über Rücknahme von Flüchtlingen
+ergänzende. Schutz nach EU Recht,zusätzliches Recht nach Europäischen Recht
+Pflichtverteidiger,vom Staat zugewiesener Rechtsanwalt
+Verteidiger,Rechtsanwalt
+Freispruch,Nicht schuldig
+von etwas absehen,etwas nicht  wollen
+Amtsmissbrauch,Missbrauch in staatlicher Arbeit
+Zugang zu. Wohnraum,Recht auf eine Wohnung
+Zugang zu. Justiz,Recht auf eine gerichtliche Verhandlung
+Zugangsberechtigung,Recht auf Zugang
+Berufung,Widerspruch gegen Gerichtsurteil
+Klageerhebung,Beantragung der Klage
+Beschleunigtes Verfahren,schneller, abgekürzter Prozess
+unterbringen,Unterkunft bieten
+in Anspruch nehmen,ein Recht nutzen
+dauerhafte Betreuung,Betreuung ohne zeitliche Grenze
+Beglaubigung,offizielle Bescheinigung
+beglaubigen,offiziell bestätigen
+beglaubigt,offiziell bestätigt
+Geburtsurkunde,offzielle Bescheinigung der Geburt
+zugewiesener Aufenthaltsbereich,erlaubter Aufenthaltsort
+staatenlos,ohne Heimatland
+Beschwerdeverfahren,Prozess des widerspruchs
+Verwurzelung,dauerhafte Heimat
+verwurzelt,zu Hause
+Flüchtlingskonvention,internationales Gesetz für die Behandlung von Flüchtlingen
+Richtlinie,Regel
+Geschlechterzugehörigkeit,Einordnung des Geschlechtes (weiblich, männlich oder transgender)
+Genozid,Völkermord
+Abschiebung,zwanghafte Ausreise
+Ausreisefrist,Zeit bis zur Ausreise
+Apostille,offizielle Bestätigung für das Dokument
+Schuldspruch,Verurteilung
+Ablehnungsmitteilung,Information über die Ablehnung
+im Zweifel für den Angeklagten,im Zweifel für den Beschuldigten
+Beweislast,Nachweispflicht
+sichere. Drittland,vorher durchquertes, sicheres Land
+Aussetzung der Abschiebung,Unterbrechung der zwanghaften Ausreise
+Rückkehrförderung,Unterstützung für Rückkehr in das Heimatland
+Verordnung,Gesetz
+Asylbewerberleistungsgesetz,Gesetz für die Leistungen an Flüchtlinge
+Asylverfahrensgesetz,Gesetz über das Verfahren der Anerkennung als Flüchtling
+subsidiärer Schutz,zusätzliches Recht als Flüchtling
+Genfer Flüchtlingskonvention,Internationales Gesetzt für die Behandlungen von Flüchtlingen
+Gewährungszeitraum,Fortdauer der bereits erhaltenen Bescheide

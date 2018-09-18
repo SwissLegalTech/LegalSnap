@@ -1,0 +1,64 @@
+Afrikaans,af
+Albanian (shqip),sq
+Arabic (اللغة العربية الفصحى),ar
+Azerbaijani (Azərbaycan dili),az
+Basque (euskara),eu
+Belarusian (Беларуская мова (Bielaruskaja mova),be
+Bengali (বাংলা / baɛṅlā),bn
+Bulgarian (български),bg
+Catalan,ca
+Chinese Simplified,zh-CN
+Chinese Traditional,zh-TW
+Croatian (Hrvatski),hr
+Czech (čeština),cs
+Danish (dansk),da
+Dutch,nl
+English,en
+Esperanto,eo
+Estonian,et
+Filipino (Tagalog),tl
+Finnish (suomi),fi
+French,fr
+Galician,gl
+Georgian (ქართული),ka
+German (deutsch),de
+Greek (ελληνικά),el
+Gujarati (ગુજરાતી),gu
+Haitian Creole,ht
+Hebrew (עִבְרִית),iw
+Hindi (हिन्दी),hi
+Hungarian (Magyar),hu
+Icelandic,is
+Indonesian (Bahasa Indonesia),id
+Irish (An Ghaeilge),ga
+Italian,it
+Japanese (日本語),ja
+Kannada (ಕನ್ನಡ),kn
+Korean (한국어),ko
+Latin,la
+Latvian,lv
+Lithuanian,lt
+Macedonian (македонски),mk
+Malay (Bahasa melayu),ms
+Maltese,mt
+Norwegian,n
+Persian (فارسى),fa
+Polish,pl
+Portuguese,pt
+Romanian (limba română),ro
+Russian (Русский язык),ru
+Serbian (српски),sr
+Slovak,sk
+Slovenian,sl
+Spanish,es
+Swahili (Kiswahili),sw
+Swedish,sv
+Tamil (தமிழ்),ta
+Telugu (తెలుగు),te
+Thai (ภาษาไทย),th
+Turkish (Türkçe),tr
+Ukrainian (Українська),uk
+Urdu (اردو),ur
+Vietnamese (tiếng việt),vi
+Welsh,cy
+Yiddish,yi

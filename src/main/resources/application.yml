@@ -1,12 +1,10 @@
 server:
   port: 8080
+
 jsf:
   primefaces:
     autoUpdate: auto
     cacheProvider: org.primefaces.cache.DefaultCacheProvider
     fontAwesome: true
     theme: omega
-    uploader: auto
-application:
-    dataPath: '/data'
-
+    uploader: commons

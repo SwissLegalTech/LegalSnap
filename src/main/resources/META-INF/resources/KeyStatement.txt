@@ -1,0 +1,10 @@
+abgelehnt,Der Bescheid ist negativ.
+nicht zuerkannt,Der Bescheid ist negativ.
+Vorraussetzungen für die Zuerkennung,Die Vorraussetzungen genügen nicht.
+Abschiebungsverbot,Der Staat darf dich zur Ausreise zwingen.
+verlassen,Deine Zeit bis  zur Ausreise ist ein Monat und 3 Tage ab Datum dieses Briefes.
+im Falle einer Klageerhebung,Wenn du gegen den Bescheid klagst und der Bescheid gleich bleibt, ist die Zeit bis zur Ausreise 30 Tage nach Ende der Gerichtsverhandlung.
+andere. Staat abgeschoben,Der Staat darf dich zur Ausreise in ein Land zwingen, dass nicht dein Heimatland ist.
+andere. Staat abgeschieb,Der Staat darf dich zur Ausreise in ein Land zwingen, dass nicht dein Heimatland ist.
+Leistungsgewährung,Du erhälst Unterstützung vom Staat.
+Leistung,Du erhälst Unterstützung vom Staat.
