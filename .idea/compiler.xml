@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="legalsnap" target="1.8" />
       <module name="watchdog" target="1.8" />
     </bytecodeTargetLevel>
   </component>
