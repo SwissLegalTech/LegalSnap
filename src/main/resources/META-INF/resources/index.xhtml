@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -8,153 +9,98 @@
       xsi:schemaLocation="http://java.sun.com/jsf/html">
 
 <h:head>
-    <title>Cisi Checkservlet Watchdog</title>
+    <title>LegalSnap</title>
 </h:head>
 
 <style>
 
-    .green{
-        background-color:lightgreen!important;
-    }
-
-    .red{
-        background-color:red!important;
-    }
-
-    .orange{
-        background-color:darkorange!important;
-    }
-
 </style>
 
-<h:body>
+<h:body id="entirePage">
 
     <h:outputScript>
         history.pushState(null, null, '/');
     </h:outputScript>
-    #{checkservletBackingBean.reload()}
-    <h:form id="fm">
 
-        <p:poll update=":fm:model" interval="60"/>
+        <p:graphicImage value="picture.jpg"  height="80" style="display: block; margin: 0px auto;" />
 
-        <br/>
+        <h:form id="fm" enctype="multipart/form-data">
 
-        <p:panel id="buttons" header="Cisi Checkservlet Watchdog - Anzahl gespeicherter Checks #{checkservletBackingBean.count()}" style="margin-bottom:10px">
+            <p:blockUI id="blockIt" widgetVar="blockIt" block="entirePage">
+                #{JSFBackingBean.translate('Please wait')}
+            </p:blockUI>
 
-            <p:panelGrid columns="22" cellpadding="3" layout="grid">
+            <p:growl id="messages" showDetail="true"/>
 
-                <p:commandButton icon="fa fa-rotate-right" id="go" value="check" actionListener="#{checkservletBackingBean.exec()}" class="orange" update=":fm"/>
-                <p:tooltip  for="go" value="Checks anstossen und im Hintergrund ausführen" showEffect="slide" hideEffect="slide" position="bottom"/>
+            <p:panel id="language" header="" footer="#{JSFBackingBean.getLan()}" style="margin-bottom:20px" rendered="#{JSFBackingBean.getPage().equals('language')}">
+                <h:panelGroup style="display:block; text-align:center">
+                    <p:commandButton update="fm" icon="fa fa-language" disabled="false"/>
+                    <p:selectOneMenu value="#{JSFBackingBean.language}" label="lang" filter="true"  filterMatchMode="contains">
+                        <f:selectItem itemLabel="?" itemValue="-"/>
+                        <f:selectItems value="#{JSFBackingBean.getLanguages()}" itemLabel="#{lan.getKey()}" itemValue="#{lan.getValue()}" var="lan"/>
+                        <p:ajax listener="#{JSFBackingBean.getLanguages()}" onstart="PF('blockIt').show()" oncomplete="PF('blockIt').hide()" update="fm"/>
+                    </p:selectOneMenu>
+                </h:panelGroup>
+            </p:panel>
 
-                <p:commandButton id="stunde" value="Stunde" actionListener="#{checkservletBackingBean.setMode('letzteStunde')}" update=":fm" icon="fa fa-clock-o"/>
-                <p:tooltip  for="stunde" value="Events der letzten Stunde anzeigen" showEffect="slide" hideEffect="slide" position="bottom"/>
+            <p:panel id="disclaimer" header="" footer="#{JSFBackingBean.getLan()}" style="margin-bottom:20px" rendered="#{JSFBackingBean.getPage().equals('disclaimer')}">
+                <h:panelGroup style="display:block; text-align:center">
+                    <p:fieldset  style="margin-bottom:20px">
+                        <p:outputLabel value="#{JSFBackingBean.translate('Dürfen wir dein Dokument mit externer Hilfe analysieren? Datenschutz')}"/>
+                    </p:fieldset>
+                    <p:outputLabel value="#{JSFBackingBean.translate('ja')}"/>
+                    <p:selectBooleanCheckbox value="#{JSFBackingBean.disclaimer}">
+                        <p:ajax update="fm" onstart="PF('blockIt').show()" oncomplete="PF('blockIt').hide()" />
+                    </p:selectBooleanCheckbox>
+                </h:panelGroup>
+            </p:panel>
 
-                <p:commandButton id="letzte" value="Event" actionListener="#{checkservletBackingBean.setMode('letzterEvent')}" icon="fa fa-stack-overflow" update=":fm"/>
-                <p:tooltip  for="letzte" value="Letzter Event pro Projekt" showEffect="slide" hideEffect="slide" position="bottom"/>
+            <p:panel id="upload" header="" footer="#{JSFBackingBean.getLan()}" style="margin-bottom:20px" rendered="#{JSFBackingBean.getPage().equals('upload')}">
+                <h:panelGroup style="display:block; text-align:center">
+                    <p:fileUpload fileUploadListener="#{JSFBackingBean.handleFileUpload}" multiple="false" auto="true"
+                                  ajax="true" widgetVar="dialogUpLoad" mode="advanced"
+                                  label="#{JSFBackingBean.translate('Datei hochladen (draufziehen)')}"
+                                  oncomplete="document.getElementById('fm:upload_button').click()"/>
+                    <p:commandButton id="upload_button" value="upload_button" update="fm" jax="true" style="display: none" onstart="PF('blockIt').show()" oncomplete="PF('blockIt').hide()" />
+                </h:panelGroup>
+            </p:panel>
 
-                <p:commandButton id="alle" value="alle" actionListener="#{checkservletBackingBean.setMode('')}" update=":fm"  icon="fa fa-globe"/>
-                <p:tooltip  for="alle" value="Alle Events anzeigen" showEffect="slide" hideEffect="slide" position="bottom"/>
+            <p:panel id="show" header="" footer="#{JSFBackingBean.getLan()}" style="margin-bottom:20px" rendered="#{JSFBackingBean.getPage().equals('process')}">
+                <h:panelGroup style="display:block; text-align:center">
+                    <p:accordionPanel>
+                        <p:tab title="#{JSFBackingBean.translate('Kernaussage')}">
+                            <h:panelGrid columns="1" cellpadding="10">
 
-                <p:commandButton id="edit" icon="fa fa-edit" value="Editor" onclick="PF('editor').show();"/>
-                <p:tooltip  for="edit" value="Files online editieren" showEffect="slide" hideEffect="slide" position="bottom"/>
+                                <p:dataTable var="val" value="#{JSFBackingBean.lookupKeywords()}">
+                                    <p:column headerText="">
+                                        <h:outputText value="#{JSFBackingBean.translate(val.value)}" />
+                                    </p:column>
+                                </p:dataTable>
 
-                <p:selectOneMenu value="#{checkservletBackingBean.projekt}" style="width:125px">
-                    <f:selectItem itemLabel="Projektfilter ..." itemValue=""/>
-                    <f:selectItems value="#{checkservletBackingBean.projekte}"/>
-                    <p:ajax listener="#{checkservletBackingBean.reload()}" update=":fm"/>
-                </p:selectOneMenu>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="#{JSFBackingBean.translate('Übersetzter, vereinfachter Text')}">
+                            <h:panelGrid columns="1" cellpadding="10">
+                                <h:outputText escape="false" value="#{JSFBackingBean.getTextTranslatedParsed()}" />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="#{JSFBackingBean.translate('Original vereinfachter Text')}">
+                            <h:panelGrid columns="1" cellpadding="10">
+                                <h:outputText  escape="false" value="#{JSFBackingBean.getTextParsed()}" />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="#{JSFBackingBean.translate('Original Text')}">
+                            <h:panelGrid columns="1" cellpadding="10">
+                                <h:outputText value="#{JSFBackingBean.getText()}" />
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                    <br/><br/>
+                    <p:commandButton value="#{JSFBackingBean.translate('Neu beginnen')}" actionListener="#{JSFBackingBean.reset()}" update="fm"/>
+                </h:panelGroup>
+            </p:panel>
 
-                <p:selectOneMenu value="#{checkservletBackingBean.stage}" style="width:125px">
-                    <f:selectItem itemLabel="Stagefilter ..." itemValue=""/>
-                    <f:selectItems value="#{checkservletBackingBean.stages}"/>
-                    <p:ajax listener="#{checkservletBackingBean.reload()}" update=":fm"/>
-                </p:selectOneMenu>
-
-                <p:watermark for="vt" value="Volltextfilter..." />
-                <p:tooltip  for="vt" value="Eingabefeld verlassen um Suche anzuwenden" showEffect="slide" hideEffect="slide" position="bottom"/>
-                <p:inputText id="vt" value="#{checkservletBackingBean.suchstring}">
-                    <p:ajax event="blur" listener="#{checkservletBackingBean.reload()}" update="fm" />
-                </p:inputText>
-
-                <p:commandButton icon="fa fa-trash" id="del" value="DEL" actionListener="#{checkservletBackingBean.del()}" class="red" update="fm"/>
-                <p:tooltip  for="del" value="Nur jeweils letzten Check behalten" showEffect="slide" hideEffect="slide" position="bottom"/>
-
-                <p:commandButton id="green" actionListener="#{toggleCheck.toggle()}" update=":fm" value="Eigener Check: grün" class="green" rendered="#{toggleCheck.ok}" />
-
-
-            </p:panelGrid>
-
-        </p:panel>
-
-        <br/>
-
-        <p:dataTable var="model" id="model"
-                     value="#{checkservletBackingBean.all}"
-                     selectionMode="single"
-                     selection="#{checkservletBackingBean.selected}"
-                     rowKey="#{model.id}"
-                     rowIndexVar="index">
-
-            <p:ajax event="rowSelect" oncomplete="PF('check').show();" update=":fm:check"/>
-
-
-            <p:column headerText="Nr." >
-                <h:outputText value=" #{index + 1}"/>
-            </p:column>
-
-            <p:column headerText="Datum" sortBy="#{model.date}">
-                <h:outputText value="#{model.date}">
-                    <f:convertDateTime locale="de" pattern="dd.MM.yy HH:mm" timeZone="Europe/Zurich"/>
-                </h:outputText>
-            </p:column>
-
-            <p:column headerText="Wann">
-                <h:outputText value="#{model.getWann()}"/>
-            </p:column>
-
-            <p:column headerText="Projekt" sortBy="#{model.projekt}">
-                <h:outputText value="#{model.projekt}"/>
-            </p:column>
-
-            <p:column headerText="Stage" sortBy="#{model.stage}">
-                <h:outputText value="#{model.stage}"/>
-            </p:column>
-
-            <p:column headerText="Servlet hat Inhalt">
-                <p:selectBooleanCheckbox value="#{!model.isEmty()}" disabled="true"/>
-            </p:column>
-
-            <p:column headerText="">
-                <p:commandButton  actionListener="#{checkservletBackingBean.remove(model.file)}" update="fm:model" value="X" class="red" ajax="false"/>
-            </p:column>
-
-        </p:dataTable>
-
-        <p:dialog header="Checkservlet: #{checkservletBackingBean.selected.projekt}" id="check" modal="true" widgetVar="check" height="900" width="1500">
-            <h:outputText value="#{checkservletBackingBean.selected.content}" escape="false"/>
-        </p:dialog>
-
-        <p:dialog id="editor" modal="true" widgetVar="editor" height="900" width="1500">
-
-            <h:panelGrid id="grid" columns="3" cellpadding="0">
-                <p:outputLabel value="File:"/>
-                <p:selectOneMenu id="dlg1" value="#{editorBackingBean.file}">
-                    <f:selectItem itemLabel="File auswählen" itemValue=""/>
-                    <f:selectItems value="#{editorBackingBean.files}"/>
-                    <p:ajax listener="#{editorBackingBean.load()}" update="fm:dlg1, fm:dlg2, fm:dlg3" process="@this"/>
-                </p:selectOneMenu>
-                <p:commandButton id="dlg2" value="Speichern" actionListener="#{editorBackingBean.save()}" update="fm:dlg1, fm:dlg2, fm:dlg3" disabled="#{editorBackingBean.isDisabled()}"/>
-            </h:panelGrid>
-
-            <p:inputTextarea id="dlg3" rows="45" cols="180" value="#{editorBackingBean.content}" autoResize="true" disabled="#{editorBackingBean.isDisabled()}"/>
-
-            <br/>
-
-        </p:dialog>
-
-        <p:growl id="growl" showDetail="true" sticky="false" />
-
-    </h:form>
+        </h:form>
 
 </h:body>
 
