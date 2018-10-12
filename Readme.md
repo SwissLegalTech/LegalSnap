@@ -45,5 +45,5 @@ Java Libs and Frameworks
 
 Known Bugs
 ----------
-- No responsive on mobile Browsers
+- Not responsive on mobile Browsers
 
